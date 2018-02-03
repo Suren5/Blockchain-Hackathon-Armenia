@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Hay Health</title>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Hay Health</a>
+                <ul class="right hide-on-med-and-down">
+                    <!-- <li><a href="#">Navbar Link</a></li> -->
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <!-- <li><a href="#">Navbar Link</a></li> -->
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="container" id="welcomeStage">
+                    <br><br>
+
+                    <h1 class="header center orange-text">The World's first decentralized network for healthcare sector</h1>
+                    <div class="row center">
+                    </div>
+
+                    <div class="row center">
+                        <a href="#" id="getStarted" class="btn-large waves-effect waves-light orange">Become healthy</a>
+                    </div>
+
+                    <br><br>
+                </div>
+
+                <div style="display: none;" id="contractSelection">
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <h5>Are you new or already registered patient?</h5>
+                        </div>
+
+                        <div class="col s12 m3">
+                            <a href="#" id="newContract" class="btn-large waves-effect waves-light">New Patient</a>
+                        </div>
+
+                        <div class="col s12 m6">
+                            <a href="#" id="existingContract" class="btn-large waves-effect waves-light">Already Registered Patient</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="contractDeploy">
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <p>
+                                Please input the details for the deployment of this contract
+                            <p>
+                        </div>
+
+                        <div class="input-field col s6 m3">
+                            <input placeholder="" id="expiresDate" type="text" class="datepicker">
+                            <label for="expiresDate">Beginning of Contract</label>
+                        </div>
+
+                        <div class="input-field col s6 m3">
+                            <input placeholder="" id="expiresTime" type="text" class="timepicker">
+                            <label for="expiresDate">End of Contract</label>
+                        </div>
+
+                        <div class="input-field col s12 m6">
+                            <input placeholder="" id="buyIn" type="number" class="validate" step="any">
+                            <label for="buyIn">Money to be Paid to Hospital</label>
+                        </div>
+
+                       <div class="input-field col s6">
+                            <select id="position">
+                                <option value="" disabled selected>Futures Option</option>
+                                <option value="0">Long</option>
+                                <option value="1">Short</option>
+                                <option value="2">Hedge</option>
+                            </select>
+                            <label>Choose Your Health Insurance Futures Position</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input placeholder="" id="queryStr" type="text" class="validate">
+                            <label for="queryStr">Query String</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input placeholder="" id="oracleAddr" type="text" class="validate">
+                            <label for="oracleAddr">Public Key</label>
+                        </div>
+
+                        <div class="col s12">
+                            <p>
+                                <a href="#" id="deployContract" class="btn waves-effect waves-light">Deploy</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="contractInput">
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <p>
+                                Please input the ethereum address of the smart contract you would like to use.
+                            </p>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input placeholder="" id="inputContractAddress" type="text" class="validate">
+                            <label for="inputContractAddress">Contract Address</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <a class="waves-effect waves-light btn" id="inputContractBtn">Continue</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="loadingStatus">
+                    <h1 id="loadingMessage">Loading Contract Status</h1><br>
+
+                    <div class="preloader-wrapper big active">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div><div class="gap-patch">
+                                <div class="circle"></div>
+                            </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="contractUnfilled">
+                    <div class="col s12">
+                        <p>
+                            This Contract is Ready to have Health Insurance Positions Filled out for it.
+                        </p>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select id="position">
+                            <option value="" disabled selected>Futures Option</option>
+                            <option value="0">Long</option>
+                            <option value="1">Short</option>
+                            <option value="2">Hedge</option>
+                        </select>
+                        <label>Choose Your Health Insurance Futures Position</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input placeholder="" id="positionAmount" type="number" step="any" class="validate">
+                        <label for="positionAmount">Position Amount (eth)</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn" id="makePosition">Make Position</a>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="contractReadyStart">
+                    <p>
+                        This contract is ready to be started. Click the button below to initiate the futures contract.
+                    </p>
+
+                    <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn" id="startContract">Start</a>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="contractLive">
+                    <p>
+                        The contract is currently live. <span id="longAddress" style="font-family:'Lucida Console', monospace"></span> took a long and <span id="shortAddress" style="font-family:'Lucida Console', monospace"></span> took a short. The current pot it <span id="contractValue" style="font-family:'Lucida Console', monospace"></span> ETH
+                    </p>
+                </div>
+
+                <div style="display: none;" id="contractReadyEnd">
+                    <p>
+                        This contract is ready to be ended. Click the button below to end the futures contract.
+                    </p>
+
+                    <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn" id="endContract">End</a>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="contractReadySettle">
+                    <p>
+                        This contract is ready to be settled.
+                    </p>
+
+                    <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn" id="settleContract">Settle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <h4 id="errorHead"></h4>
+                <p id="errorBody"></p>
+            </div>
+            <div class="modal-footer">
+                <a href="index.html" class="modal-action modal-close waves-effect waves-green btn-flat">Reload</a>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ethjs@0.3.0/dist/ethjs.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/contract.js"></script>
+    <script src="js/index.js"></script>
+</html>
